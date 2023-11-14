@@ -71,7 +71,7 @@ Build Options
       --bundler               Select bundler backend (webpack, rollup)  [string] [default: "webpack"]
 
 Deploy Options
-      --target             Select target(s) for test, deploy, update-package actions (wsk,aws,google,auto)  [array] [default: ["auto"]]
+      --target             Select target(s) for test, deploy, update-package actions (wsk,aws,google,cloudflare,auto)  [array] [default: ["auto"]]
       --hints, --no-hints  Show additional hints for deployment  [boolean] [default: true]
 
 Test Options
@@ -321,6 +321,18 @@ destination filename. eg:
       ["public/", "static/"],
     ]
   }
+...
+```
+
+### Deploying to Cloudflare Worker or any edge worker
+
+If you are deploying it as an Edge Worker, such as Cloudflare Workers or Fastly Compute@Edge, make sure to set `arch` to `edge` in the wsk configuration.
+
+```json
+...
+  "wsk": {
+    ...
+    "arch": "edge"
 ...
 ```
 
